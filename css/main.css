@@ -1,0 +1,80 @@
+/*Added by Ram Prasad*/
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+body{
+	background-image: url(../images/wallpaper.jpg);
+}
+
+.heading{
+	font-size: 35px;
+	padding: 30px;
+	width: 45%;
+	display: inline-block;
+	/*background-color: lightblue;*/
+}
+
+button{
+	text-align: center;
+	padding: 10px;
+	background-color: transparent;
+	display: block;
+    margin: 0 auto;
+}
+hr{
+	border: px solid;
+	margin: 40px 0px;
+}
+pre{
+	padding: 25px;
+	white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Table CSS */
+table, th, td {
+   	border: 3px solid black;
+   	border-collapse: collapse; 
+	margin-left: 15px;
+	margin-right: 3px;
+	font-size: 13px;
+}
+th, td {
+   	padding: 8px 2px 8px 2px;
+   	text-align: center;
+   	height: 40px;
+   	/*width: auto;*/
+}
+/*tr:nth-child(even){background-color: #f2f2f2;}*/
+
+.section-button{
+	width: 23%;
+	padding: 10px;
+	margin: 10px;
+	margin-top: -10px;
+}
+.action-button{
+	width: 100%;
+	padding: 10px;
+	margin: 5px;
+	/*margin-top: -10px;*/
+}
+
+.footer{
+	padding: 25px;
+	margin-top: 30px;
+	font-size: 16px;
+	opacity: .85;
+}
+.footer-heading{
+	padding-top: 10px;
+}
+.part-col-3{
+	-webkit-columns: 3; /* Chrome, Safari, Opera */ 
+    -moz-columns: 3; /* Firefox */
+    columns: 3;
+} @media screen and (max-width: 990px) { .part-col-3{-webkit-columns: 2;  -moz-columns: 2; columns: 2; } }
