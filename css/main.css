@@ -7,12 +7,30 @@ body{
 	background-image: url(../images/wallpaper.jpg);
 }
 
-.heading{
+.heading1{
 	font-size: 35px;
 	padding: 30px;
 	width: 45%;
 	display: inline-block;
 	/*background-color: lightblue;*/
+}
+.heading2{
+	font-size: 35px;
+	padding: 30px;
+	width: 20%;
+	display: inline-block;
+	margin-left: 90px;
+	/*background-color: lightblue;*/
+	}
+.dropdown
+{
+	display: inline;
+	margin-left: 100px;
+	text-align: center;
+	padding: 10px;
+	/*background-color: transparent;*/
+	/*display: block;*/
+    margin: 0 auto;
 }
 
 button{
@@ -50,12 +68,24 @@ th, td {
    	/*width: auto;*/
 }
 /*tr:nth-child(even){background-color: #f2f2f2;}*/
-
+.dropdown-toggle
+{
+	width: 23%;
+	padding: 10px;
+	margin: 10px;
+	margin-top: -10px;
+}
 .section-button{
 	width: 23%;
 	padding: 10px;
 	margin: 10px;
 	margin-top: -10px;
+}
+.form-group
+{
+	/*width: 100%;
+	padding: 10px;
+	/*margin: 5px;*/
 }
 .action-button{
 	width: 100%;
@@ -66,7 +96,7 @@ th, td {
 
 .footer{
 	padding: 25px;
-	margin-top: 30px;
+	margin-top: 70px;
 	font-size: 16px;
 	opacity: .85;
 }
