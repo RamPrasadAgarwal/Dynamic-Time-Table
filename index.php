@@ -15,7 +15,7 @@
 <?php
     $user='root';
     $pass='';
-    $dbname='dbms-project';
+    $dbname='dbms-pr';
             $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
 ?> 
 <body>
@@ -24,9 +24,9 @@
 	<button class="btn btn-primary section-button">Section A</button>
 	<button class="btn btn-primary section-button">Section B</button>
   
-				<div class="table-responsive table-background">
-                <table width="98%">
-  						<tr>
+	<div class="table-responsive table-background">
+        <table width="98%">
+  	     	<tr>
                             <th>Date</th>
     						<th>Days</th>
    			 				<th>07:30 - 08:25</th> 
@@ -41,11 +41,9 @@
     						<th>03:25 - 04:20</th>
     						<th>04:20 - 05:15</th>
     					</tr>
-            <? php
+            <?php
             $sql = "SELECT * FROM cl5b order by date";
             $result = $conn->query($sql);
-
-                $flag=0;
             while($row=mysqli_fetch_assoc($result)){
             echo "
 				<tr>
@@ -58,72 +56,148 @@
             }
             ?>
 				</table></div>
+                <br>
 
-
-	<br>
 	<div class="row">
-    <div class="col-md-2">  
-      <button class="btn btn-success action-button">Add Single Class</button>
-    </div>
-    <div class="col-md-10">      
-      <form>
-        <input type="date" placeholder="Enter date">
-        <input type="text" placeholder="Enter time">
-        <input type="classcode" placeholder="Enter time">
-        <input type="submit" class="btn btn-primary">
-      </form>
-    </div>
+    <div class="col-md-3"><button class="btn btn-success action-button" id="firstbutton">Add Single Class</button></div>
+    <div class="col-md-3"><button class="btn btn-danger action-button" id="secondbutton">Cancel Single Class</button></div>
+    <div class="col-md-3"><button class="btn btn-warning action-button" id="thirdbutton">Swap Two Classes</button></div>
+    <div class="col-md-3"><button class="btn btn-primary action-button" id="forthbutton">Teacher on Leave</button></div>
   </div>
+
   <div class="row">
-    <div class="col-md-2">
-      <button class="btn btn-danger action-button">Cancel Single Class</button>
-    </div>
-    <div class="col-md-10">      
-      <form>
-        <input type="date" placeholder="Enter date">
-        <input type="text" placeholder="Enter time">
-        <input type="classcode" placeholder="Enter time">
-        <input type="submit" class="btn btn-primary">
-      </form>
-    </div>
+  <div id="first">
+    <form name="addclass" action="addclass.php">
+      <input type="date" placeholder="Select Date">
+      <input list="time" placeholder="Select Time">
+        <datalist id="time">
+          <option value="07:30 - 08:25" name="t1">
+          <option value="08:25 - 09:20" name="t2">
+          <option value="09:20 - 10:15" name="t3">
+          <option value="10:45 - 11:40" name="t4">
+          <option value="11:40 - 12:35" name="t5">
+          <option value="12:35 - 13:30" name="t6">
+          <option value="14:30 - 15:25" name="t7">
+          <option value="15:25 - 16:20" name="t8">
+          <option value="16:20 - 17:15" name="t9">
+        </datalist> 
+      <input type="text" placeholder="Select Subject Code"><br>
+      <input type="submit" class="btn btn-primary">
+    </form>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <button class="btn btn-warning action-button">Swap Two Classes</button>
-    </div>
-    <div class="col-md-10">      
-      <form>
-        <input type="date" placeholder="Enter date">
-        <input type="timeslot1" placeholder="Enter timeslot1">
-        <input type="timeslot2" placeholder="Enter timeslot2">
-        <input type="submit" class="btn btn-primary">
-      </form>
-    </div>
+  <div id="second">
+    <form name="removeclass" action="removeclass.php">
+      <input type="date" placeholder="Select Date">
+      <input list="time" placeholder="Select Time">
+        <datalist id="time">
+          <option value="07:30 - 08:25" name="t1">
+          <option value="08:25 - 09:20" name="t2">
+          <option value="09:20 - 10:15" name="t3">
+          <option value="10:45 - 11:40" name="t4">
+          <option value="11:40 - 12:35" name="t5">
+          <option value="12:35 - 13:30" name="t6">
+          <option value="14:30 - 15:25" name="t7">
+          <option value="15:25 - 16:20" name="t8">
+          <option value="16:20 - 17:15" name="t9">
+        </datalist> 
+      <input type="text" placeholder="Select Subject Code"><br>
+      <input type="submit" class="btn btn-primary">
+    </form>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <button class="btn btn-primary action-button">Teacher on Leave</button>
-    </div>
-    <div class="col-md-10">      
-      <form>
-        <input type="date" placeholder="Enter date">
-        <input type="text" placeholder="Enter time">
-        <input type="classcode" placeholder="Enter time">
-        <input type="submit" class="btn btn-primary">
-      </form>
-    </div>
+  <div id="third">
+    <form name="swapclass" action="removeclass.php">
+      <input type="date" placeholder="Select Date">
+      <input list="time" placeholder="Select Time">
+        <datalist id="time">
+          <option value="07:30 - 08:25" name="t1">
+          <option value="08:25 - 09:20" name="t2">
+          <option value="09:20 - 10:15" name="t3">
+          <option value="10:45 - 11:40" name="t4">
+          <option value="11:40 - 12:35" name="t5">
+          <option value="12:35 - 13:30" name="t6">
+          <option value="14:30 - 15:25" name="t7">
+          <option value="15:25 - 16:20" name="t8">
+          <option value="16:20 - 17:15" name="t9">
+        </datalist> 
+        <input list="time" placeholder="Select Time">
+        <datalist id="time">
+          <option value="07:30 - 08:25" name="t1">
+          <option value="08:25 - 09:20" name="t2">
+          <option value="09:20 - 10:15" name="t3">
+          <option value="10:45 - 11:40" name="t4">
+          <option value="11:40 - 12:35" name="t5">
+          <option value="12:35 - 13:30" name="t6">
+          <option value="14:30 - 15:25" name="t7">
+          <option value="15:25 - 16:20" name="t8">
+          <option value="16:20 - 17:15" name="t9">
+        </datalist> <br>
+      <input type="submit" class="btn btn-primary">
+    </form>
   </div>
-	<div class="row bg-primary footer">
-		<div class="col-md-3 footer-heading">Project Designed and Developed By:</div>
-		<div class="col-md-3">
-			Shetty Harshit Arun - 4NI14CS080<br>
-			Sheetal Pamecha - 4NI14CS079
-		</div>
-		<div class="col-md-3">
-			Rashmi Nayaran - 4NI14CS069<br>
-			Ram Prasad Agarwal - 4NI14CS068
-		</div>
-		<div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table"><img src="images/github.png" width="40px" title="GitHub"></a></div>
-	</div>
+  <div id="forth">
+    <form name="teacherleave" action="removeclass.php">
+      <input type="date" placeholder="Select Date">
+      <input list="time" placeholder="Select Time">
+        <datalist id="time">
+          <option value="07:30 - 08:25" name="t1">
+          <option value="08:25 - 09:20" name="t2">
+          <option value="09:20 - 10:15" name="t3">
+          <option value="10:45 - 11:40" name="t4">
+          <option value="11:40 - 12:35" name="t5">
+          <option value="12:35 - 13:30" name="t6">
+          <option value="14:30 - 15:25" name="t7">
+          <option value="15:25 - 16:20" name="t8">
+          <option value="16:20 - 17:15" name="t9">
+        </datalist><br>
+      <input type="submit" class="btn btn-primary">
+    </form>    
+  </div>
+  </div>
+        
+    <div class="row bg-primary footer">
+        <div class="col-md-3 footer-heading">Project Designed and Developed By:</div>
+        <div class="col-md-3">
+            Shetty Harshit Arun - 4NI14CS080<br>
+            Sheetal Pamecha - 4NI14CS079
+        </div>
+        <div class="col-md-3">
+            Rashmi Nayaran - 4NI14CS069<br>
+            Ram Prasad Agarwal - 4NI14CS068
+        </div>
+        <div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table"><img src="images/github.png" width="40px" title="GitHub"></a></div>
+    </div>
 </body>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#firstbutton').click(function(){
+      $('#first').show(400);
+      $('#second').hide(400);
+      $('#third').hide(400);
+      $('#forth').hide(400);
+    });
+
+    $('#secondbutton').click(function(){
+      $('#first').hide(400);
+      $('#second').show(400);
+      $('#third').hide(400);
+      $('#forth').hide(400);
+    });
+
+    $('#thirdbutton').click(function(){
+      $('#first').hide(400);
+      $('#second').hide(400);
+      $('#third').show(400);
+      $('#forth').hide(400);
+    });
+
+    $('#forthbutton').click(function(){
+      $('#first').hide(400);
+      $('#second').hide(400);
+      $('#third').hide(400);
+      $('#forth').show(400);
+    });
+  });
+</script>
 </html>

@@ -32,6 +32,9 @@ body{
 	/*display: block;*/
     margin: 0 auto;
 }
+form{
+	text-align: center;
+}
 input,input[type=submit]{
 	margin:7px;
 	padding: 8px;
@@ -40,7 +43,9 @@ input,input[type=submit]{
 	/*background-color: transparent;*/
 }
 input[type=submit]{
-	width: 150px;
+	width: 575px;
+	/*display: block;*/
+	text-align: center;
 }	
 button{
 	text-align: center;
@@ -112,3 +117,8 @@ th, td {
     -moz-columns: 3; /* Firefox */
     columns: 3;
 } @media screen and (max-width: 990px) { .part-col-3{-webkit-columns: 2;  -moz-columns: 2; columns: 2; } }
+
+#first,#second,#third,#forth{
+	display: none;
+	padding-top: 50px;
+}
