@@ -1,9 +1,3 @@
-<?php
-$user='root';
-    $pass='';
-    $dbname='dbms-project';
-            $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
-?>            
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +12,13 @@ $user='root';
 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+
 <body>
 
 	<div class="text-center heading1">Dynamic Time Table</div>
 	<button class="btn btn-primary section-button">Section A</button>
 	<button class="btn btn-primary section-button">Section B</button>
-  <?php
-    $sql = "SELECT * FROM cl5b order by date";
-            $result = $conn->query($sql);
+  
 				<div class="table-responsive table-background"><table width="98%">
 					<thead>
   						<tr>
@@ -43,20 +36,26 @@ $user='root';
     						<th>04:20 - 05:15</th>
     					</tr>
     				</thead>
+            <?php
+            $sql = "SELECT * FROM cl5b order by date";
+            $result = $conn->query($sql);
             while($row=mysqli_fetch_assoc($result)){
             echo "
     				<tbody>
   						<tr>
     						<th>".$row['day']."</th> 
                 <td>".$row['t1']."</td> <td>".$row['t2']."</td> <td>".$row['t3']."</td>
+                <td>".."</td>
                 <td>".$row['t4']."</td> <td>".$row['t5']."</td> <td>".$row['t6']."</td>
+                <td>".."</td>
               <td>".$row['t7']."</td> <td>".$row['t8']."</td> <td>".$row['t9']."</td>
               </tr>
   					</tbody>
             ";
             }
+            ?>
 				</table></div>
-?>
+
 
 	<br>
 	<div class="row">
