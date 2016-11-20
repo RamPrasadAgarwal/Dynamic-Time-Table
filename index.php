@@ -7,7 +7,6 @@ echo "hello world ";
             $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
             $sql = "SELECT * FROM cl5b order by date";
             $result = $conn->query($sql);
-            echo $result;
             while($row=mysqli_fetch_assoc($result)){
             		echo "<table>
             		<tr>
@@ -23,7 +22,4 @@ echo "hello world ";
                 //$fullname=$row['email'];
                 //$password=$row['password'];
                 //$_SESSION['id'] = $row['id'];
-        
-            echo $class1;
-
 ?>
