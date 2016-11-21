@@ -7,7 +7,7 @@ body{
 	background-image: url(../images/wallpaper.jpg);
 }
 
-.heading{
+.heading1{
 	font-size: 35px;
 	padding: 30px;
 	width: 45%;
@@ -80,3 +80,32 @@ option{
     -moz-columns: 3; /* Firefox */
     columns: 3;
 } @media screen and (max-width: 990px) { .part-col-3{-webkit-columns: 2;  -moz-columns: 2; columns: 2; } }
+.dropdown		
+ {		
+ 	display: inline;		
+ 	margin-left: 100px;		
+ 	text-align: center;		
+ 	padding: 10px;		
+ 	/*background-color: transparent;*/		
+ 	/*display: block;*/		
+     margin: 0 auto;		
+ }		
+ form{		
+ 	text-align: center;		
+ }		
+ input,input[type=submit]{		
+ 	margin:7px;		
+ 	padding: 8px;		
+ 	border-radius: 5px;		
+ 	border-style: none;		
+ 	/*background-color: transparent;*/		
+ }		
+ input[type=submit]{		
+ 	width: 575px;		
+ 	/*display: block;*/		
+ 	text-align: center;		
+ }	
+ #first,#second,#third,#forth{		
+ 	display: none;		
+	padding-top: 50px;		
+ }
