@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dynamic Time Table</title>
-	<base href="./">
+  <title>Dynamic Time Table</title>
+  <base href="./">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,7 +10,7 @@
     <script type="text/javascript" src="scripts/jquery.min.1.12.0.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <?php
@@ -21,34 +21,34 @@
 ?> 
 <body>
 
-	<div class="text-center heading1">Dynamic Time Table</div>
-	<button class="btn btn-primary section-button">Section A</button>
-	<button class="btn btn-primary section-button">Section B</button>
+  <div class="text-center heading1">Dynamic Time Table</div>
+  <button class="btn btn-primary section-button">Section A</button>
+  <button class="btn btn-primary section-button">Section B</button>
   
-	<div class="table-responsive table-background">
+  <div class="table-responsive table-background">
         <table width="98%">
-  	     	<tr>
-                            <th>Date</th>
-    						<th>Days</th>
-   			 				<th>07:30 - 08:25</th> 
-			    			<th>08:25 - 09:20</th>
-    						<th>09:20 - 10:15</th>
-    						<th rowspan=7>BREAK</th>
-    						<th>10:45 - 11:40</th> 
-    						<th>11:40 - 12:35</th>
-    						<th>12:35 - 01:30</th>
-                            <th rowspan=7>BREAK</th>
-    						<th>02:30 - 03:25</th> 
-    						<th>03:25 - 04:20</th>
-    						<th>04:20 - 05:15</th>
-    					</tr>
+          <tr>
+                <th>Date</th>
+                <th>Days</th>
+                <th>07:30 - 08:25</th> 
+                <th>08:25 - 09:20</th>
+                <th>09:20 - 10:15</th>
+                <th rowspan=7>BREAK</th>
+                <th>10:45 - 11:40</th> 
+                <th>11:40 - 12:35</th>
+                <th>12:35 - 01:30</th>
+                <th rowspan=7>BREAK</th>
+                <th>02:30 - 03:25</th> 
+                <th>03:25 - 04:20</th>
+                <th>04:20 - 05:15</th>
+              </tr>
             <?php
-            $sql = "SELECT * FROM cl5b order by date";
+            $sql = "SELECT * FROM cl5b order by date ";
             $result = $conn->query($sql);
             while($row=mysqli_fetch_assoc($result)){
             echo "
-				<tr>
-				<th>".$row['date']."</th> <th>".$row['day']."</th> 
+        <tr>
+        <th>".$row['date']."</th> <th>".$row['day']."</th> 
                 <td>".$row['t1']."</td> <td>".$row['t2']."</td> <td>".$row['t3']."</td> 
                 <td>".$row['t4']."</td> <td>".$row['t5']."</td> <td>".$row['t6']."</td>
                 <td>".$row['t7']."</td> <td>".$row['t8']."</td> <td>".$row['t9']."</td>
@@ -56,21 +56,22 @@
             ";
             }
             ?>
-				</table></div>
+        </table></div>
                 <br>
 
-	<div class="row">
+  <div class="row">
     <div class="col-md-3"><button class="btn btn-success action-button" id="firstbutton">Add Single Class</button></div>
     <div class="col-md-3"><button class="btn btn-danger action-button" id="secondbutton">Cancel Single Class</button></div>
     <div class="col-md-3"><button class="btn btn-warning action-button" id="thirdbutton">Swap Two Classes</button></div>
     <div class="col-md-3"><button class="btn btn-primary action-button" id="forthbutton">Teacher on Leave</button></div>
   </div>
 
+
   <div class="row">
   <div id="first">
-    <form name="addclass" action="addclass.php">
-      <input type="date" placeholder="Select Date">
-      <input list="time" placeholder="Select Time">
+    <form name="addclass" action="index.php" method="GET">
+      <input type="date" placeholder="Select Date" name="date">
+      <input list="time" placeholder="Select Time" name="time">
         <datalist id="time">
           <option value="07:30 - 08:25" name="t1">
           <option value="08:25 - 09:20" name="t2">
@@ -82,7 +83,7 @@
           <option value="15:25 - 16:20" name="t8">
           <option value="16:20 - 17:15" name="t9">
         </datalist> 
-      <input type="text" placeholder="Select Subject Code"><br>
+      <input type="text" placeholder="Select Subject " name="sub"><br>
       <input type="submit" class="btn btn-primary">
     </form>
   </div>
