@@ -7,46 +7,14 @@ body{
 	background-image: url(../images/wallpaper.jpg);
 }
 
-.heading1{
+.heading{
 	font-size: 35px;
 	padding: 30px;
 	width: 45%;
 	display: inline-block;
 	/*background-color: lightblue;*/
 }
-.heading2{
-	font-size: 35px;
-	padding: 30px;
-	width: 20%;
-	display: inline-block;
-	margin-left: 90px;
-	/*background-color: lightblue;*/
-	}
-.dropdown
-{
-	display: inline;
-	margin-left: 100px;
-	text-align: center;
-	padding: 10px;
-	/*background-color: transparent;*/
-	/*display: block;*/
-    margin: 0 auto;
-}
-form{
-	text-align: center;
-}
-input,input[type=submit]{
-	margin:7px;
-	padding: 8px;
-	border-radius: 5px;
-	border-style: none;
-	/*background-color: transparent;*/
-}
-input[type=submit]{
-	width: 575px;
-	/*display: block;*/
-	text-align: center;
-}	
+
 button{
 	text-align: center;
 	padding: 10px;
@@ -82,20 +50,13 @@ th, td {
    	/*width: auto;*/
 }
 /*tr:nth-child(even){background-color: #f2f2f2;}*/
-.dropdown-toggle
-{
-	width: 23%;
-	padding: 10px;
-	margin: 10px;
-	margin-top: -10px;
-}
+
 .section-button{
 	width: 23%;
 	padding: 10px;
 	margin: 10px;
 	margin-top: -10px;
 }
-
 .action-button{
 	width: 100%;
 	padding: 10px;
@@ -105,7 +66,7 @@ th, td {
 
 .footer{
 	padding: 25px;
-	margin-top: 70px;
+	margin-top: 30px;
 	font-size: 16px;
 	opacity: .85;
 }
@@ -117,8 +78,3 @@ th, td {
     -moz-columns: 3; /* Firefox */
     columns: 3;
 } @media screen and (max-width: 990px) { .part-col-3{-webkit-columns: 2;  -moz-columns: 2; columns: 2; } }
-
-#first,#second,#third,#forth{
-	display: none;
-	padding-top: 50px;
-}
