@@ -112,15 +112,24 @@
           <option value="15:25 - 16:20" name="t8">
           <option value="16:20 - 17:15" name="t9">
         </datalist> 
-      <input type="text" placeholder="Select Subject Code"><br>
+      <input list="subject" placeholder="Select Subject">
+        <datalist id="subject">
+          <option value="SS - System Software" name="ss">
+          <option value="OS - Operating Software" name="os">
+          <option value="AMP - Adavanced Microprocessor" name="amp">
+          <option value="DBMS - Database Managemnt System" name="dbms">
+          <option value="CD - Compiler Design" name="cd">
+          <option value="DUOS - Design of Unix Operating System" name="duos">
+          <option value="CG - Computer Graphics and Visualization" name="cg">
+        </datalist> <br>
       <input type="submit" class="btn btn-primary">
     </form>
   </div>
 
   <div id="third">
     <form name="swapclass" action="swap.php" method="POST">
-      <input type="date" placeholder="Select Date">
-      <input list="time" placeholder="Select Time">
+      <input type="date" placeholder="Select Date" name="date">
+      <input list="time" placeholder="Select Time" name="time1">
         <datalist id="time">
           <option value="07:30 - 08:25" name="t1">
           <option value="08:25 - 09:20" name="t2">
@@ -132,7 +141,7 @@
           <option value="15:25 - 16:20" name="t8">
           <option value="16:20 - 17:15" name="t9">
         </datalist> 
-        <input list="time" placeholder="Select Time">
+        <input list="time" placeholder="Select Time" name="time2">
         <datalist id="time">
           <option value="07:30 - 08:25" name="t1">
           <option value="08:25 - 09:20" name="t2">
