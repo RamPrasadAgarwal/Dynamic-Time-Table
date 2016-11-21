@@ -1,3 +1,10 @@
+<?php
+    $user='root';
+    $pass='';
+
+    $dbname='dbms-project';
+    $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
+?> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,18 +17,10 @@
     <script type="text/javascript" src="scripts/jquery.min.1.12.0.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
-<?php
-    $user='root';
-    $pass='';
 
-    $dbname='dbms-project';
-    $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
-    $dbname='dbms-pr';
-            $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
-?> 
 <body>
 
   <div class="text-center heading1">Dynamic Time Table</div>
@@ -73,30 +72,10 @@
 
   <div class="row">
   <div id="first">
-    <form name="addclass" action="index.php" method="GET">
+    <form name="addclass" action="php/add.php" method="GET">
       <input type="date" placeholder="Select Date" name="date">
       <input list="time" placeholder="Select Time" name="time">
-        <datalist id="time">
-          <option value="07:30 - 08:25" name="t1">
-          <option value="08:25 - 09:20" name="t2">
-          <option value="09:20 - 10:15" name="t3">
-          <option value="10:45 - 11:40" name="t4">
-          <option value="11:40 - 12:35" name="t5">
-          <option value="12:35 - 13:30" name="t6">
-          <option value="14:30 - 15:25" name="t7">
-          <option value="15:25 - 16:20" name="t8">
-          <option value="16:20 - 17:15" name="t9">
-        </datalist>
-      <input list="subject" placeholder="Select Subject">
-        <datalist id="subject">
-          <option value="SS - System Software" name="ss">
-          <option value="OS - Operating Software" name="os">
-          <option value="AMP - Adavanced Microprocessor" name="amp">
-          <option value="DBMS - Database Managemnt System" name="dbms">
-          <option value="CD - Compiler Design" name="cd">
-          <option value="DUOS - Design of Unix Operating System" name="duos">
-          <option value="CG - Computer Graphics and Visualization" name="cg">
-        </datalist> <br>
+      <input list="subject" placeholder="Select Subject" name="subject"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
   </div>
@@ -104,27 +83,7 @@
     <form name="removeclass" action="removeclass.php">
       <input type="date" placeholder="Select Date">
       <input list="time" placeholder="Select Time">
-        <datalist id="time">
-          <option value="07:30 - 08:25" name="t1">
-          <option value="08:25 - 09:20" name="t2">
-          <option value="09:20 - 10:15" name="t3">
-          <option value="10:45 - 11:40" name="t4">
-          <option value="11:40 - 12:35" name="t5">
-          <option value="12:35 - 13:30" name="t6">
-          <option value="14:30 - 15:25" name="t7">
-          <option value="15:25 - 16:20" name="t8">
-          <option value="16:20 - 17:15" name="t9">
-        </datalist> 
-      <input list="subject" placeholder="Select Subject">
-        <datalist id="subject">
-          <option value="SS - System Software" name="ss">
-          <option value="OS - Operating Software" name="os">
-          <option value="AMP - Adavanced Microprocessor" name="amp">
-          <option value="DBMS - Database Managemnt System" name="dbms">
-          <option value="CD - Compiler Design" name="cd">
-          <option value="DUOS - Design of Unix Operating System" name="duos">
-          <option value="CG - Computer Graphics and Visualization" name="cg">
-        </datalist> <br>
+      <input list="subject" placeholder="Select Subject"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
   </div>
@@ -133,47 +92,14 @@
     <form name="swapform" action="php/swap.php" method="GET">
       <input type="date" placeholder="Select Date" name="date">
       <input list="time" placeholder="Select Time" name="time1">
-        <datalist id="time">
-          <option value="07:30 - 08:25" name="t1">
-          <option value="08:25 - 09:20" name="t2">
-          <option value="09:20 - 10:15" name="t3">
-          <option value="10:45 - 11:40" name="t4">
-          <option value="11:40 - 12:35" name="t5">
-          <option value="12:35 - 13:30" name="t6">
-          <option value="14:30 - 15:25" name="t7">
-          <option value="15:25 - 16:20" name="t8">
-          <option value="16:20 - 17:15" name="t9">
-        </datalist> 
-        <input list="time" placeholder="Select Time" name="time2">
-        <datalist id="time">
-          <option value="07:30 - 08:25" name="t1">
-          <option value="08:25 - 09:20" name="t2">
-          <option value="09:20 - 10:15" name="t3">
-          <option value="10:45 - 11:40" name="t4">
-          <option value="11:40 - 12:35" name="t5">
-          <option value="12:35 - 13:30" name="t6">
-          <option value="14:30 - 15:25" name="t7">
-          <option value="15:25 - 16:20" name="t8">
-          <option value="16:20 - 17:15" name="t9">
-        </datalist> <br>
+      <input list="time" placeholder="Select Time" name="time2"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
   </div>
   <div id="forth">
     <form name="teacherleave" action="removeclass.php">
       <input type="date" placeholder="Select Date">
-      <input list="time" placeholder="Select Time">
-        <datalist id="time">
-          <option value="07:30 - 08:25" name="t1">
-          <option value="08:25 - 09:20" name="t2">
-          <option value="09:20 - 10:15" name="t3">
-          <option value="10:45 - 11:40" name="t4">
-          <option value="11:40 - 12:35" name="t5">
-          <option value="12:35 - 13:30" name="t6">
-          <option value="14:30 - 15:25" name="t7">
-          <option value="15:25 - 16:20" name="t8">
-          <option value="16:20 - 17:15" name="t9">
-        </datalist><br>
+      <input list="time" placeholder="Select Time"> <br>
       <input type="submit" class="btn btn-primary">
     </form>    
   </div>
@@ -191,6 +117,28 @@
         </div>
         <div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table"><img src="images/github.png" width="40px" title="GitHub"></a></div>
     </div>
+
+        <datalist id="subject">
+          <option value="SS - System Software" name="ss">
+          <option value="OS - Operating Software" name="os">
+          <option value="AMP - Adavanced Microprocessor" name="amp">
+          <option value="DBMS - Database Managemnt System" name="dbms">
+          <option value="CD - Compiler Design" name="cd">
+          <option value="DUOS - Design of Unix Operating System" name="duos">
+          <option value="CG - Computer Graphics and Visualization" name="cg">
+        </datalist>
+
+        <datalist id="time">
+          <option value="07:30 - 08:25">
+          <option value="08:25 - 09:20">
+          <option value="09:20 - 10:15">
+          <option value="10:45 - 11:40">
+          <option value="11:40 - 12:35">
+          <option value="12:35 - 13:30">
+          <option value="14:30 - 15:25">
+          <option value="15:25 - 16:20">
+          <option value="16:20 - 17:15">
+        </datalist>
 </body>
 
 
