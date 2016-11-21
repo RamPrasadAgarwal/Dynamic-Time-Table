@@ -6,6 +6,7 @@
 <body>
 
 <?php
+
     $date = $_GET['date'];
     $time = $_GET['time'];
     $sub = $_GET['subject'];
@@ -42,12 +43,18 @@
     while($row=mysqli_fetch_assoc($result)){
       $val1 = $row[$col1];
     }
-    
+      
+     /* echo $date;
+      echo $time;
+      echo $sub;
+      echo $col1;
+      echo $val1;*/
+
        $class = "class5b";
     
       $result = $conn->query("START TRANSACTION");
     
-      $sql = "UPDATE class5b set ".$col1." = '".$sub."' 
+      $sql = "UPDATE class5b set ".$col1." = 'NULL' 
         WHERE date = '".$date."';";
       $result1 = $conn->query($sql);
       echo $sql;
@@ -59,7 +66,7 @@
       $tr1 = $row['tcode'];
     }
 
-      $sql = "UPDATE ".$tr1. " set ".$col1." = '".$class."' 
+      $sql = "UPDATE ".$tr1. " set ".$col1." = 'NULL' 
       WHERE date = '".$date."';";
       $result2 = $conn->query($sql);        
       echo $sql;

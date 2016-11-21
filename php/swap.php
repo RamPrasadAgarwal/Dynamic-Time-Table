@@ -84,19 +84,20 @@
     	$tr2 = $row['tcode'];
     }
 
-    $sql="select * from ".$tr1." where date = '".$date."'";
+    //If we require to check that no other tables are colliding.
+    /*$sql="select * from ".$tr1." where date = '".$date."'";
     $result = $conn->query($sql);
     while($row=mysqli_fetch_assoc($result)){
     	$t1sub1 = $row[$col1];
     	$t1sub2 = $row[$col2];
     }
 
-    $sql="select * from ".$tr2." where date = '".$date."'";
+   $sql="select * from ".$tr2." where date = '".$date."'";
     $result = $conn->query($sql);
     while($row=mysqli_fetch_assoc($result)){
     	$t2sub1 = $row[$col1];
     	$t2sub2 = $row[$col2];
-    }
+    }*/
     $class = "class5b";
     
     $result = $conn->query("START TRANSACTION");

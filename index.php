@@ -29,28 +29,28 @@
   
   <div class="table-responsive table-background">
         <table width="98%">
-  	     	<tr>
+            <tr>
             <th>Date</th>
-    				<th>Days</th>
-   			 		<th>07:30 - 08:25</th> 
-			    	<th>08:25 - 09:20</th>
-    				<th>09:20 - 10:15</th>
-    				<th rowspan=7>B<br>R<br>E<br>A<br>K</th>
-    				<th>10:45 - 11:40</th> 
-    				<th>11:40 - 12:35</th>
-    				<th>12:35 - 01:30</th>
+                    <th>Days</th>
+                    <th>07:30 - 08:25</th> 
+                    <th>08:25 - 09:20</th>
+                    <th>09:20 - 10:15</th>
+                    <th rowspan=7>B<br>R<br>E<br>A<br>K</th>
+                    <th>10:45 - 11:40</th> 
+                    <th>11:40 - 12:35</th>
+                    <th>12:35 - 01:30</th>
             <th rowspan=7>B<br>R<br>E<br>A<br>K</th>
-    				<th>02:30 - 03:25</th> 
-    				<th>03:25 - 04:20</th>
-    				<th>04:20 - 05:15</th>
-    			</tr>
+                    <th>02:30 - 03:25</th> 
+                    <th>03:25 - 04:20</th>
+                    <th>04:20 - 05:15</th>
+                </tr>
             <?php
             $sql = "SELECT * FROM cl5b order by date ";
             $result = $conn->query($sql);
             while($row=mysqli_fetch_assoc($result)){
             echo "
-				  <tr>
-				    <th>".$row['date']."</th> <th>".$row['day']."</th> 
+                  <tr>
+                    <th>".$row['date']."</th> <th>".$row['day']."</th> 
               <td>".$row['t1']."</td> <td>".$row['t2']."</td> <td>".$row['t3']."</td> 
               <td>".$row['t4']."</td> <td>".$row['t5']."</td> <td>".$row['t6']."</td>
                <td>".$row['t7']."</td> <td>".$row['t8']."</td> <td>".$row['t9']."</td>
@@ -58,7 +58,7 @@
             ";
             }
             ?>
-				</table>
+                </table>
   </div>
   <br>
 
@@ -80,10 +80,10 @@
     </form>
   </div>
   <div id="second">
-    <form name="removeclass" action="removeclass.php">
-      <input type="date" placeholder="Select Date">
-      <input list="time" placeholder="Select Time">
-      <input list="subject" placeholder="Select Subject"> <br>
+    <form name="removeclass" action="php/remove.php" method="GET">
+      <input type="date" placeholder="Select Date" name="date">
+      <input list="time" placeholder="Select Time" name="time">
+      <input list="subject" placeholder="Select Subject" name="subject"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
   </div>
@@ -119,13 +119,13 @@
     </div>
 
         <datalist id="subject">
-          <option value="SS - System Software" name="ss">
-          <option value="OS - Operating Software" name="os">
-          <option value="AMP - Adavanced Microprocessor" name="amp">
-          <option value="DBMS - Database Managemnt System" name="dbms">
-          <option value="CD - Compiler Design" name="cd">
-          <option value="DUOS - Design of Unix Operating System" name="duos">
-          <option value="CG - Computer Graphics and Visualization" name="cg">
+          <option value="SS" name="ss">
+          <option value="OS" name="os">
+          <option value="AMP" name="amp">
+          <option value="DBMS" name="dbms">
+          <option value="CD" name="cd">
+          <option value="DUOS" name="duos">
+          <option value="CG" name="cg">
         </datalist>
 
         <datalist id="time">
