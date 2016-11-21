@@ -16,7 +16,7 @@
 <?php
     $user='root';
     $pass='';
-    $dbname='dbms-pr';
+    $dbname='dbms-project';
             $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
 ?> 
 <body>
