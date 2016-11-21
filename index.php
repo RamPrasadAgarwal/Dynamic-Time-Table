@@ -16,8 +16,8 @@
 <?php
     $user='root';
     $pass='';
-    $dbname='dbms-pr1';
-            $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
+    $dbname='dbms-project';
+    $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
 ?> 
 <body>
 
@@ -127,7 +127,7 @@
   </div>
 
   <div id="third">
-    <form name="swapclass" action="swap.php" method="POST">
+    <form name="swapform" action="php/swap.php" method="GET">
       <input type="date" placeholder="Select Date" name="date">
       <input list="time" placeholder="Select Time" name="time1">
         <datalist id="time">
