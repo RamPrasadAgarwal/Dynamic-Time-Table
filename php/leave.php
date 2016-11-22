@@ -49,7 +49,7 @@
                           //echo $row;
                           //echo $key;
                           //echo $value;
-
+                          if ($row[$key] != 'NULL') {
                           $result = $conn->query("START TRANSACTION");
                           $sql = "UPDATE ".$value." set ".$key." = 'NULL'
                           WHERE date = '".$date."';";
@@ -65,6 +65,7 @@
                             $result4 = $conn->query("COMMIT");
                            }
                           else $result5 = $conn->query("ROLLBACK");
+                        }
                       }
              }
 
