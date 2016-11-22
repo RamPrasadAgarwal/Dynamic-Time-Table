@@ -34,9 +34,13 @@
       $error='error1'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
     if($class=='error3' || $class=='error4'){
       $error='error2'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+    if($class=='error5' || $class=='error6'){
+      $error='error3'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+    if($class=='error7' || $class=='error8'){
+      $error='error4'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
 
-    if($class=='error1' || $class=='error3') $class='class5a';
-    if($class=='error2' || $class=='error4') $class='class5b';
+    if($class=='error1' || $class=='error3' || $class=='error5'|| $class=='error7') $class='class5a';
+    if($class=='error2' || $class=='error4'|| $class=='error6'|| $class=='error8') $class='class5b';
     if($class == 'class5a') $classview='cl5a';
     else if($class=='class5b')$classview='cl5b';
     if($class!='0'){
@@ -90,10 +94,9 @@
   <br>
 
   <div class="row">
-    <div class="col-md-3"><button class="btn btn-success action-button" id="firstbutton">Add Single Class</button></div>
-    <div class="col-md-3"><button class="btn btn-danger action-button" id="secondbutton">Cancel Single Class</button></div>
-    <div class="col-md-3"><button class="btn btn-warning action-button" id="thirdbutton">Swap Two Classes</button></div>
-    <div class="col-md-3"><button class="btn btn-primary action-button" id="forthbutton">Teacher on Leave</button></div>
+    <div class="col-md-4"><button class="btn btn-success action-button" id="firstbutton">Add Single Class</button></div>
+    <div class="col-md-4"><button class="btn btn-danger action-button" id="secondbutton">Cancel Single Class</button></div>
+    <div class="col-md-4"><button class="btn btn-warning action-button" id="thirdbutton">Swap Two Classes</button></div>
   </div>
 <?php } ?>
 
@@ -210,6 +213,8 @@
                 <?php 
                 if($error=='error1') echo "Class Already Reserved!!! Kindly Choose Another One.."; 
                 if($error=='error2') echo "Class Already Empty!!! Can't Cancel An Empty Class"; 
+                if($error=='error3') echo "One Teacher Already Other Class At That Time!!! Swap Cancelled To Prevent Conflict"; 
+                if($error=='error4') echo "One Class Is Empty!!! Can't Swap Empty Class.<br><br>Suggestion: Cancel Non-Empty Class and Add it Again"; 
                 ?>
               </p>
             </div>
@@ -219,6 +224,4 @@
           </div>
         </div>
 </body>
-
-
 </html>

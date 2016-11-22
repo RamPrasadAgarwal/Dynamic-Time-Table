@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-
 <?php
     $date = $_GET['date'];
-    $sub = $_GET['subject'];
-    $class = $_GET['class'];
+    // $sub = $_GET['subject'];
+    // $class = $_GET['class'];
+    $teacher=$_GET['teacher1']
     echo $date;
-    echo $sub;
-    $id=$_GET['id'];
-            if($id!=0){
-            $teacher = $_GET['teacher'];
+    echo $teacher;
+    // $id=$_GET['id'];
+    // if($id!=0){
 
                 switch ($teacher) {
                     case 'Lokesh': $col1="lokesh";

@@ -17,7 +17,8 @@
     <script type="text/javascript" src="scripts/jquery.min.1.12.0.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
 
@@ -27,16 +28,6 @@
         <form action="teacher.php" method="GET">
             <input name="id" value="1" hidden>
             <input list="teacher" name="teacher" placeholder="Select Teacher">
-            <datalist id="teacher">
-                <option value="Lokesh">
-                <option value="Anitha">
-                <option value="Dr H D Phaneendra">
-                <option value="Ambili">
-                <option value="Vatsala">
-                <option value="Madan">
-                <option value="Alaka">
-                <option value="Yuvraju">
-            </datalist>
             <input type="submit" name="submit" class="btn btn-primary" style="width:40%;" hidden >   
         </form>
     </div>
@@ -116,11 +107,24 @@
                     echo "</td> <td>";
                     if($row['t9'] != 'NULL') echo $row['t9'];
                 }
-            }
+            
+        { ?>
+        </table>
+    </div><br>
+    <button class="btn btn-primary" id="forthbutton">Teacher on Leave</button>
 
-        echo" </table>
-    </div>";
-    ?>
+    <div id="forth">
+        <div class="col-md-4 text-center white"><h1>Teacher On Leave</h1></div>
+        <div class="col-md-8">
+            <form name="teacherleave" action="php/leave.php" method="GET">
+                <input type="date" placeholder="Select Date" name="date" required>
+                <input list="teacher" placeholder="Select Teacher" name="teacher1" required> <br>
+                <input type="submit" class="btn btn-primary">
+            </form>   
+        </div> 
+    </div>
+
+    <?php } }?>
 
     <br><br><br>
     <div class="row bg-primary footer">
@@ -135,5 +139,16 @@
 		</div>
 		<div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table"><img src="images/github.png" width="40px" title="GitHub"></a></div>
 	</div><br>
+
+        <datalist id="teacher">
+            <option value="Lokesh">
+            <option value="Anitha">
+            <option value="Dr H D Phaneendra">
+            <option value="Ambili">
+            <option value="Vatsala">
+            <option value="Madan">
+            <option value="Alaka">
+            <option value="Yuvraju">
+        </datalist>
 </body>
 </html>

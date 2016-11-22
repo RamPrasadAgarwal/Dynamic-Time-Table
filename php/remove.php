@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-
 <?php
 
     $date = $_GET['date'];
@@ -76,5 +69,3 @@
     else if($class=='class5b')
       header("Location: ../index.php?class=error4");
     ?>
-</body>
-</html>

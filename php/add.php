@@ -67,4 +67,4 @@
 
     else if($class=='class5b')
       header("Location: ../index.php?class=error2");
-    ?>
+?>
