@@ -130,10 +130,10 @@
   <div id="forth">
   <div class="col-md-4 text-center white"><h1>Teacher On Leave</h1></div>
     <div class="col-md-8">
-    <form name="teacherleave" action="removeclass.php">
+    <form name="teacherleave" action="php/leave.php" method="GET">
       <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
-      <input type="date" placeholder="Select Date">
-      <input list="subject" placeholder="Select Teacher Subject"> <br>
+      <input type="date" placeholder="Select Date" name="date">
+      <input list="subject" placeholder="Select Teacher Subject" name="subject"> <br>
       <input type="submit" class="btn btn-primary">
     </form>   
     </div> 
