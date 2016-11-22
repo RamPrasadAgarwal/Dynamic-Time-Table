@@ -29,9 +29,9 @@
   <a href="teacher.php?id=0"><button class="btn btn-primary section-button">Teacher</button></a>
   <?php 
     $class=$_GET['class'];
-    if($class == 'class5a') $classview='cl5a';
-    else if($class=='class5b') $classview='cl5b';
-    if($class== 'class5a' || $class == 'class5b'){
+    if($class == 'class5a' || $class == 'error1') $classview='cl5a';
+    else if($class=='class5b' || $class == 'error2') $classview='cl5b';
+    if($classview== 'cl5a' || $classview == 'cl5b'){
       ?>
   <div class="table-responsive table-background">
         <table width="98%">
@@ -72,9 +72,9 @@
                     echo "</td> <td>";
                     if($row['t7'] != 'NULL') echo $row['t7'];
                     echo "</td> <td>";
-                    if($row['t8'] != 'NULL'){ echo $row['t8'];}
+                    if($row['t8'] != 'NULL') echo $row['t8'];
                     echo "</td> <td>";
-                    if($row['t9'] != 'NULL'){ echo $row['t9'];}
+                    if($row['t9'] != 'NULL') echo $row['t9'];
                 }
             ?>
                 </table>

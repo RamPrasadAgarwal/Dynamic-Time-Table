@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-
 <?php
     $date = $_GET['date'];
     $time = $_GET['time'];
@@ -33,15 +26,16 @@
         $col1="t0";
         break;
     }
-    $sql="Select * from class5b where date = '".$date."'";
     $user='root';
     $pass='';
     $dbname='dbms-project';
     $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
+    $sql="Select * from ".$class." where date = '".$date."'";
     $result = $conn->query($sql);
     while($row=mysqli_fetch_assoc($result)){
       $val1 = $row[$col1];
     }    
+    if($val1=="NULL"){
       $result = $conn->query("START TRANSACTION");
     
       $sql = "UPDATE ".$class." set ".$col1." = '".$sub."' 
@@ -49,25 +43,28 @@
       $result1 = $conn->query($sql);
       echo $sql;
 
-    $sql="select * from refer where subject = '".$sub."'";
-    echo $sql;
-    $result = $conn->query($sql);
-    while($row=mysqli_fetch_assoc($result)){
-      $tr1 = $row['tcode'];
-    }
+      $sql="select * from refer where subject = '".$sub."'";
+      echo $sql;
+      $result = $conn->query($sql);
+      while($row=mysqli_fetch_assoc($result)){
+        $tr1 = $row['tcode'];
+      }
 
       $sql = "UPDATE ".$tr1. " set ".$col1." = '".$class."' 
       WHERE date = '".$date."';";
       $result2 = $conn->query($sql);        
       echo $sql;
     
-    if($result1 and $result2){
-      $result4 = $conn->query("COMMIT");
-     }
-    else $result5 = $conn->query("ROLLBACK");
+      if($result1 and $result2){
+        $result4 = $conn->query("COMMIT");
+      }
+      else $result5 = $conn->query("ROLLBACK");
 
-    header("Location: ../index.php?class=".$class);
+      header("Location: ../index.php?class=".$class);
+    }
+    else if($class=='class5a')
+      header("Location: ../index.php?class=error1");
 
+    else if($class=='class5b')
+      header("Location: ../index.php?class=error2");
     ?>
-</body>
-</html>

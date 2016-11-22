@@ -58,14 +58,13 @@
                     case 'Vatsala': $col1="vatsala";
                     break;
                     case 'Madan': $col1="madan";
-                        break;
+                    break;
                     case 'Yuvraju': $col1="yuvraju";
-                        break;
+                    break;
                     case 'Alaka': $col1="alaka";
-                        break;
-                    default:
-                        $col1="t0";
-                        break;
+                    break;
+                    default: $col1="t0";
+                    break;
                 }
             }
             if($id==1){ ?>
@@ -98,23 +97,23 @@
                     <tr>
                     <th>".$row['Date']."</th> <th>".$row['Day']."</th> 
                     <td>";
-                    if($row['t1'] != 'NULL') echo $row['t1'];
+                    if($row['t1'] != 'NULL') { if($row['t1'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t1'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t2'] != 'NULL') echo $row['t2'];
+                    if($row['t2'] != 'NULL') { if($row['t2'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t2'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t3'] != 'NULL') echo $row['t3'];
+                    if($row['t3'] != 'NULL') { if($row['t3'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t3'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t4'] != 'NULL') echo $row['t4'];
+                    if($row['t4'] != 'NULL') { if($row['t4'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t4'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t5'] != 'NULL') echo $row['t5'];
+                    if($row['t5'] != 'NULL') { if($row['t5'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t5'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t6'] != 'NULL') echo $row['t6'];
+                    if($row['t6'] != 'NULL') { if($row['t6'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t6'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t7'] != 'NULL') echo $row['t7'];
+                    if($row['t7'] != 'NULL') { if($row['t7'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t7'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t8'] != 'NULL') echo $row['t8'];
+                    if($row['t8'] != 'NULL') { if($row['t8'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t8'] == 'class5b') echo "Sem 5 - B"; }
                     echo "</td> <td>";
-                    if($row['t9'] != 'NULL') echo $row['t9'];
+                    if($row['t9'] != 'NULL') { if($row['t9'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t9'] == 'class5b') echo "Sem 5 - B"; }
                 }
             }
 
