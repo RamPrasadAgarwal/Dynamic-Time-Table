@@ -21,37 +21,31 @@
 </head>
 <body>
 
-	<div class="col-md-5 text-center heading1">Dynamic Time Table</div>
-    <div class="col-md-2" style="padding: 35px;""><a href="../?class=0"><button class="btn btn-primary" style="width: 100%;">Home</button></a></div>
-    <div class="col-md-4" style="padding: 25px;">
-        <form action="teacher.php" method="GET">
-            <input name="id" value="1" hidden>
-            <input list="teacher" name="teacher" placeholder="Select Teacher">
-            <datalist id="teacher">
-                <option value="Lokesh">
-                <option value="Anitha">
-                <option value="Dr H D Phaneendra">
-                <option value="Ambili">
-                <option value="Vatsala">
-                <option value="Madan">
-                <option value="Alaka">
-                <option value="Yuvraju">
-            </datalist>
-            <input type="submit" name="submit" class="btn btn-primary" style="width:40%;" hidden >   
-        </form>
+	<div class="text-center heading1">Dynamic Time Table</div><br>
+    <div class="text-center heading2">TEACHER</div>
+   <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="">Lokesh</a></li>
+        <li><a href="">Anita</a></li>
+        <li><a href="">Dr H D PHANEENDRA</a></li>
+        <li><a href="">Ambili</a></li>
+        <li><a href="">Vatsala</a></li>
+        <li><a href="">Madan</a></li>
+        <li><a href="">Yuvraju</a></li>
+        <li><a href="">Alaka</a></li>
+    </ul>
+  </div>
     </div>
-
         <?php
-            $id=$_GET['id'];
-            if($id!=0){
-            $teacher = $_GET['teacher'];
-
+             $teacher = $_GET['teacher'];
                 switch ($teacher) {
                     case 'Lokesh': $col1="lokesh";
                     break;
-                    case 'Anitha': $col1="anita";
+                    case 'Anita': $col1="anita";
                     break;
-                    case 'Dr H D Phaneendra': $col1="phaneendra";
+                    case 'Dr H D PHANEENDRA': $col1="phan";
                     break;
                     case 'Ambili': $col1="ambili";
                     break;
@@ -65,30 +59,25 @@
                     break;
                     default: $col1="t0";
                     break;
-                }
             }
-            if($id==1){ ?>
-            <br>
-            <h1 class="heading text-center" style="clear: both;">Teacher: <?php echo $teacher; ?>
-            <br><br>
+            ?>
             <div class="table-responsive table-background">
-            <table width="98%">
+        <table width="98%">
             <tr>
             <th>Date</th>
                     <th>Days</th>
                     <th>07:30 - 08:25</th> 
                     <th>08:25 - 09:20</th>
                     <th>09:20 - 10:15</th>
-                    <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
+                    <th rowspan=7>B<br>R<br>E<br>A<br>K</th>
                     <th>10:45 - 11:40</th> 
                     <th>11:40 - 12:35</th>
                     <th>12:35 - 01:30</th>
-                    <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
+                    <th rowspan=7>B<br>R<br>E<br>A<br>K</th>
                     <th>02:30 - 03:25</th> 
                     <th>03:25 - 04:20</th>
                     <th>04:20 - 05:15</th>
                 </tr>
-            
             <?php
                 $sql = "SELECT * FROM ".$col1." order by date ";
                 $result = $conn->query($sql);
@@ -115,13 +104,14 @@
                     echo "</td> <td>";
                     if($row['t9'] != 'NULL') { if($row['t9'] == 'class5a') echo "Sem 5 - A"; elseif ($row['t9'] == 'class5b') echo "Sem 5 - B"; }
                 }
-            }
+            ?>
+        </table>
+    </div>
+  <br>
+            
 
-        echo" </table>
-    </div>";
-    ?>
-
-    <br><br><br>
+        ?>
+    			
     <div class="row bg-primary footer">
 		<div class="col-md-3 footer-heading">Project Designed and Developed By:</div>
 		<div class="col-md-3">
@@ -133,6 +123,6 @@
 			Ram Prasad Agarwal - 4NI14CS068
 		</div>
 		<div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table"><img src="images/github.png" width="40px" title="GitHub"></a></div>
-	</div><br>
+	</div>
 </body>
 </html>
