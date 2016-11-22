@@ -43,13 +43,7 @@
     while($row=mysqli_fetch_assoc($result)){
       $val1 = $row[$col1];
     }
-      
-     /* echo $date;
-      echo $time;
-      echo $sub;
-      echo $col1;
-      echo $val1;*/
-    
+      if($val1 != 'NULL'){
       $result = $conn->query("START TRANSACTION");
     
       $sql = "UPDATE ".$class." set ".$col1." = 'NULL' 
@@ -75,7 +69,12 @@
     else $result5 = $conn->query("ROLLBACK");
 
     header("Location: ../index.php?class=".$class);
+  }
+  else if($class=='class5a')
+      header("Location: ../index.php?class=error3");
 
+    else if($class=='class5b')
+      header("Location: ../index.php?class=error4");
     ?>
 </body>
 </html>

@@ -119,3 +119,7 @@ option{
  .white{
  	color: white;
  }
+ .error-msg{
+ 	color: red;
+ 	font-size: 25px;
+ }

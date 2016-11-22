@@ -28,28 +28,36 @@
   <a href="/?class=class5b"><button class="btn btn-primary section-button">Section B</button></a>
   <a href="teacher.php?id=0"><button class="btn btn-primary section-button">Teacher</button></a>
   <?php 
+    $error=" ";
     $class=$_GET['class'];
-    if($class == 'class5a' || $class == 'error1') $classview='cl5a';
-    else if($class=='class5b' || $class == 'error2') $classview='cl5b';
-    if($classview== 'cl5a' || $classview == 'cl5b'){
+    if($class=='error1' || $class=='error2'){
+      $error='error1'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+    if($class=='error3' || $class=='error4'){
+      $error='error2'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+
+    if($class=='error1' || $class=='error3') $class='class5a';
+    if($class=='error2' || $class=='error4') $class='class5b';
+    if($class == 'class5a') $classview='cl5a';
+    else if($class=='class5b')$classview='cl5b';
+    if($class!='0'){
       ?>
-  <div class="table-responsive table-background">
+    <div class="table-responsive table-background">
         <table width="98%">
-            <tr>
+          <tr>
             <th>Date</th>
-                    <th>Days</th>
-                    <th>07:30 - 08:25</th> 
-                    <th>08:25 - 09:20</th>
-                    <th>09:20 - 10:15</th>
-                    <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
-                    <th>10:45 - 11:40</th> 
-                    <th>11:40 - 12:35</th>
-                    <th>12:35 - 01:30</th>
-                    <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
-                    <th>02:30 - 03:25</th> 
-                    <th>03:25 - 04:20</th>
-                    <th>04:20 - 05:15</th>
-                </tr>
+            <th>Days</th>
+            <th>07:30 - 08:25</th> 
+            <th>08:25 - 09:20</th>
+            <th>09:20 - 10:15</th>
+            <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
+            <th>10:45 - 11:40</th> 
+            <th>11:40 - 12:35</th>
+            <th>12:35 - 01:30</th>
+            <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
+            <th>02:30 - 03:25</th> 
+            <th>03:25 - 04:20</th>
+            <th>04:20 - 05:15</th>
+          </tr>
             <?php 
             $sql = "SELECT * FROM ".$classview." order by date ";
             $result = $conn->query($sql);
@@ -95,9 +103,9 @@
     <div class="col-md-8">
     <form name="addclass" action="php/add.php" method="GET">
       <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
-      <input type="date" placeholder="Select Date" name="date">
-      <input list="time" placeholder="Select Time" name="time">
-      <input list="subject" placeholder="Select Subject" name="subject"> <br>
+      <input type="date" placeholder="Select Date" name="date" required>
+      <input list="time" placeholder="Select Time" name="time" required>
+      <input list="subject" placeholder="Select Subject" name="subject" required> <br>
       <input type="submit" class="btn btn-primary">
     </form>
     </div>
@@ -107,9 +115,9 @@
     <div class="col-md-8">
     <form name="removeclass" action="php/remove.php" method="GET">
       <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
-      <input type="date" placeholder="Select Date" name="date">
-      <input list="time" placeholder="Select Time" name="time">
-      <input list="subject" placeholder="Select Subject" name="subject"> <br>
+      <input type="date" placeholder="Select Date" name="date" required>
+      <input list="time" placeholder="Select Time" name="time" required>
+      <input list="subject" placeholder="Select Subject" name="subject" required> <br>
       <input type="submit" class="btn btn-primary">
     </form>
     </div>
@@ -120,9 +128,9 @@
     <div class="col-md-8">
     <form name="swapform" action="php/swap.php" method="GET">
       <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
-      <input type="date" placeholder="Select Date" name="date">
-      <input list="time" placeholder="Select Time" name="time1">
-      <input list="time" placeholder="Select Time" name="time2"> <br>
+      <input type="date" placeholder="Select Date" name="date" required>
+      <input list="time" placeholder="Select Time" name="time1" required>
+      <input list="time" placeholder="Select Time" name="time2" required> <br>
       <input type="submit" class="btn btn-primary">
     </form>
     </div>
@@ -132,8 +140,8 @@
     <div class="col-md-8">
     <form name="teacherleave" action="php/leave.php" method="GET">
       <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
-      <input type="date" placeholder="Select Date" name="date">
-      <input list="subject" placeholder="Select Teacher Subject" name="subject"> <br>
+      <input type="date" placeholder="Select Date" name="date" required>
+      <input list="subject" placeholder="Select Teacher Subject" name="subject" required> <br>
       <input type="submit" class="btn btn-primary">
     </form>   
     </div> 
@@ -187,6 +195,29 @@
           <option value="15:25 - 16:20">
           <option value="16:20 - 17:15">
         </datalist>
+
+        <!-- modal for error -->
+
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title error-msg">Failed</h4>
+              </div>
+            <div class="modal-body">
+              <p class="error-msg" style="font-size: 18px;">
+                <?php 
+                if($error=='error1') echo "Class Already Reserved!!! Kindly Choose Another One.."; 
+                if($error=='error2') echo "Class Already Empty!!! Can't Cancel An Empty Class"; 
+                ?>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
 </body>
 
 
