@@ -61,7 +61,7 @@
             }
             if($id==1){ ?>
             <br>
-            <h1 class="heading text-center" style="clear: both;">Teacher: <?php echo $teacher; ?>
+            <h1 class="heading text-center" style="clear: both;">Teacher: <?php echo $teacher; ?></h1>
             <br><br>
             <div class="table-responsive table-background">
             <table width="98%">
@@ -111,7 +111,7 @@
         { ?>
         </table>
     </div><br>
-    <button class="btn btn-primary" id="forthbutton">Teacher on Leave</button>
+    <center><button class="btn btn-primary" id="forthbutton">Teacher on Leave</button></center>
 
     <div id="forth">
         <div class="col-md-4 text-center white"><h1>Teacher On Leave</h1></div>
