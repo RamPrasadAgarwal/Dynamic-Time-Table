@@ -118,7 +118,7 @@
         <div class="col-md-8">
             <form name="teacherleave" action="php/leave.php" method="GET">
                 <input type="date" placeholder="Select Date" name="date" required>
-                <input list="teacher" placeholder="Select Teacher" name="teacher1" required> <br>
+                <input value=<?php echo $teacher; ?> name="teacher1" hidden>
                 <input type="submit" class="btn btn-primary">
             </form>   
         </div> 
