@@ -18,12 +18,13 @@
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/main1.css"> -->
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
 <body>
 
-  <div class="text-center heading1">Dynamic Time Table</div>
+  <div class="text-center heading">Dynamic Time Table</div>
   <a href="/?class=class5a"><button class="btn btn-primary section-button">Section A</button></a>
   <a href="/?class=class5b"><button class="btn btn-primary section-button">Section B</button></a>
   <a href="teacher.php?id=0"><button class="btn btn-primary section-button">Teacher</button></a>
@@ -155,10 +156,32 @@
   <?php 
   $class=$_GET['class'];
   if($class== '0') { ?>
-
-  <div class="row">
-    <h1>hello</h1>
-  </div>
+   <hr>    
+    
+   <div class="heading1">THE NATIONAL INSTITUTE OF ENGINEERING</div>
+   <div class="heading2">(Autonomous under VTU)</div>
+  <center><img src="images/nie1.png" style="width:100px;height:125px;"></center>
+    <p class="content"> A Mini project report submitted <br> In partial fulfillment of the requirements for the fifth semester of the Database <br> Management Systems laboratory of <br>Bachelor of Engineering in Computer Science and Engineering <br>
+    <div class="heading2">Under The Guidance Of</div>
+    </p>
+    <div class="guide">
+        <div class="col-md-6">
+           <h4> <b>Mr. Narender M </b> </h4>          
+            Assistant Professor <br>   
+            Department of CSE <br>   
+            NIE, Mysore – 570008.<br>               
+        </div>
+        <div class="col-md-6">
+           <h4> <b> Ms.Pallavi Y </b> </h4>          
+            Assistant Professor <br>   
+            Department of CSE <br>   
+            NIE, Mysore – 570008.<br>  
+        </div>
+    </div> 
+    <br>
+    <br>
+    <br> 
+    <br>  
 
   <?php } ?>
 

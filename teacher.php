@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<div class="col-md-5 text-center heading1">Dynamic Time Table</div>
+	<div class="col-md-5 text-center heading">Dynamic Time Table</div>
     <div class="col-md-2" style="padding: 35px;""><a href="../?class=0"><button class="btn btn-primary" style="width: 100%;">Home</button></a></div>
     <div class="col-md-4" style="padding: 25px;">
         <form action="teacher.php" method="GET">
