@@ -49,12 +49,16 @@ th, td {
    	height: 40px;
    	/*width: auto;*/
 }
+tr:first-child th{
+	background-color: #999999;
+	color: white;
+}
 /*tr:nth-child(even){background-color: #f2f2f2;}*/
 option{
 	padding: 20px;
 }
 .section-button{
-	width: 23%;
+	width: 15%;
 	padding: 10px;
 	margin: 10px;
 	margin-top: -10px;
@@ -71,6 +75,9 @@ option{
 	margin-top: 30px;
 	font-size: 16px;
 	opacity: .85;
+	position: static;
+	width: 100%;
+	bottom: 0;
 }
 .footer-heading{
 	padding-top: 10px;
@@ -108,4 +115,7 @@ option{
  #first,#second,#third,#forth{		
  	display: none;		
 	padding-top: 50px;		
+ }
+ .white{
+ 	color: white;
  }

@@ -10,7 +10,7 @@
     $date = $_GET['date'];
     $time = $_GET['time'];
     $sub = $_GET['subject'];
-    $class = "class5b";
+    $class = $_GET['class'];
     switch ($time) {
       case '07:30 - 08:25': $col1="t1";
         break;
@@ -34,7 +34,7 @@
         $col1="t0";
         break;
     }
-    $sql="Select * from class5b where date = '".$date."'";
+    $sql="Select * from ".$class." where date = '".$date."'";
     $user='root';
     $pass='';
     $dbname='dbms-project';
@@ -49,12 +49,10 @@
       echo $sub;
       echo $col1;
       echo $val1;*/
-
-       $class = "class5b";
     
       $result = $conn->query("START TRANSACTION");
     
-      $sql = "UPDATE class5b set ".$col1." = 'NULL' 
+      $sql = "UPDATE ".$class." set ".$col1." = 'NULL' 
         WHERE date = '".$date."';";
       $result1 = $conn->query($sql);
       echo $sql;
@@ -76,7 +74,7 @@
      }
     else $result5 = $conn->query("ROLLBACK");
 
-    header("Location: ../index.php");
+    header("Location: ../index.php?class=".$class);
 
     ?>
 </body>

@@ -24,9 +24,15 @@
 <body>
 
   <div class="text-center heading1">Dynamic Time Table</div>
-  <button class="btn btn-primary section-button">Section A</button>
-  <button class="btn btn-primary section-button">Section B</button>
-  
+  <a href="/?class=class5a"><button class="btn btn-primary section-button">Section A</button></a>
+  <a href="/?class=class5b"><button class="btn btn-primary section-button">Section B</button></a>
+  <a href="teacher.php?id=0"><button class="btn btn-primary section-button">Teacher</button></a>
+  <?php 
+    $class=$_GET['class'];
+    if($class == 'class5a') $classview='cl5a';
+    else if($class=='class5b') $classview='cl5b';
+    if($class== 'class5a' || $class == 'class5b'){
+      ?>
   <div class="table-responsive table-background">
         <table width="98%">
             <tr>
@@ -35,28 +41,41 @@
                     <th>07:30 - 08:25</th> 
                     <th>08:25 - 09:20</th>
                     <th>09:20 - 10:15</th>
-                    <th rowspan=7>B<br>R<br>E<br>A<br>K</th>
+                    <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
                     <th>10:45 - 11:40</th> 
                     <th>11:40 - 12:35</th>
                     <th>12:35 - 01:30</th>
-            <th rowspan=7>B<br>R<br>E<br>A<br>K</th>
+                    <td rowspan=8>B<br>R<br>E<br>A<br>K</td>
                     <th>02:30 - 03:25</th> 
                     <th>03:25 - 04:20</th>
                     <th>04:20 - 05:15</th>
                 </tr>
-            <?php
-            $sql = "SELECT * FROM cl5b order by date ";
+            <?php 
+            $sql = "SELECT * FROM ".$classview." order by date ";
             $result = $conn->query($sql);
             while($row=mysqli_fetch_assoc($result)){
             echo "
-                  <tr>
+                    <tr>
                     <th>".$row['date']."</th> <th>".$row['day']."</th> 
-              <td>".$row['t1']."</td> <td>".$row['t2']."</td> <td>".$row['t3']."</td> 
-              <td>".$row['t4']."</td> <td>".$row['t5']."</td> <td>".$row['t6']."</td>
-               <td>".$row['t7']."</td> <td>".$row['t8']."</td> <td>".$row['t9']."</td>
-            </tr>
-            ";
-            }
+                    <td>";
+                    if($row['t1'] != 'NULL') echo $row['t1'];
+                    echo "</td> <td>";
+                    if($row['t2'] != 'NULL') echo $row['t2'];
+                    echo "</td> <td>";
+                    if($row['t3'] != 'NULL') echo $row['t3'];
+                    echo "</td> <td>";
+                    if($row['t4'] != 'NULL') echo $row['t4'];
+                    echo "</td> <td>";
+                    if($row['t5'] != 'NULL') echo $row['t5'];
+                    echo "</td> <td>";
+                    if($row['t6'] != 'NULL') echo $row['t6'];
+                    echo "</td> <td>";
+                    if($row['t7'] != 'NULL') echo $row['t7'];
+                    echo "</td> <td>";
+                    if($row['t8'] != 'NULL'){ echo $row['t8'];}
+                    echo "</td> <td>";
+                    if($row['t9'] != 'NULL'){ echo $row['t9'];}
+                }
             ?>
                 </table>
   </div>
@@ -68,43 +87,72 @@
     <div class="col-md-3"><button class="btn btn-warning action-button" id="thirdbutton">Swap Two Classes</button></div>
     <div class="col-md-3"><button class="btn btn-primary action-button" id="forthbutton">Teacher on Leave</button></div>
   </div>
-
+<?php } ?>
 
   <div class="row">
   <div id="first">
+    <div class="col-md-4 text-center white"><h1>Add Class</h1></div>
+    <div class="col-md-8">
     <form name="addclass" action="php/add.php" method="GET">
+      <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
       <input type="date" placeholder="Select Date" name="date">
       <input list="time" placeholder="Select Time" name="time">
       <input list="subject" placeholder="Select Subject" name="subject"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
+    </div>
   </div>
   <div id="second">
+  <div class="col-md-4 text-center white"><h1>Remove Class</h1></div>
+    <div class="col-md-8">
     <form name="removeclass" action="php/remove.php" method="GET">
+      <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
       <input type="date" placeholder="Select Date" name="date">
       <input list="time" placeholder="Select Time" name="time">
       <input list="subject" placeholder="Select Subject" name="subject"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
+    </div>
   </div>
 
   <div id="third">
+  <div class="col-md-4 text-center white"><h1>Swap Class</h1></div>
+    <div class="col-md-8">
     <form name="swapform" action="php/swap.php" method="GET">
+      <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
       <input type="date" placeholder="Select Date" name="date">
       <input list="time" placeholder="Select Time" name="time1">
       <input list="time" placeholder="Select Time" name="time2"> <br>
       <input type="submit" class="btn btn-primary">
     </form>
+    </div>
   </div>
   <div id="forth">
+  <div class="col-md-4 text-center white"><h1>Teacher On Leave</h1></div>
+    <div class="col-md-8">
     <form name="teacherleave" action="removeclass.php">
+      <input name="class" value=<?php echo '"'.$class.'"'; ?> hidden>
       <input type="date" placeholder="Select Date">
-      <input list="time" placeholder="Select Time"> <br>
+      <input list="subject" placeholder="Select Teacher Subject"> <br>
       <input type="submit" class="btn btn-primary">
-    </form>    
+    </form>   
+    </div> 
   </div>
   </div>
-        
+
+
+  <?php 
+  $class=$_GET['class'];
+  if($class== '0') { ?>
+
+  <div class="row">
+    <h1>hello</h1>
+  </div>
+
+  <?php } ?>
+
+
+    <br><Br>
     <div class="row bg-primary footer">
         <div class="col-md-3 footer-heading">Project Designed and Developed By:</div>
         <div class="col-md-3">
