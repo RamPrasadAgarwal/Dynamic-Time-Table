@@ -16,7 +16,8 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
-
+	echo $connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname;
+	
 $link = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
 if (!$link) {
@@ -31,15 +32,15 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 
 
-$conn = new mysqli$connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
+// $conn = new mysqli$connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
     
-   	$sql="Select * from tr_alaka";
+//    	$sql="Select * from tr_alaka";
 
-    $result = $conn->query($sql);
-    echo $result;
-    while($row=mysqli_fetch_assoc($result)){
-      echo $row;
-    }
+//     $result = $conn->query($sql);
+//     echo $result;
+//     while($row=mysqli_fetch_assoc($result)){
+//       echo $row;
+//     }
 
  mysqli_close($link);
    ?>
