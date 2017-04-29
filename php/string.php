@@ -29,13 +29,9 @@ if (!$link) {
 echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
-mysqli_close($link);
 
-$user='root';
-    $pass='';
 
-    $dbname='dbms-project';
-    $conn = new mysqli$connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
+$conn = new mysqli$connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
     
    	$sql="Select * from tr_alaka";
 
@@ -44,4 +40,6 @@ $user='root';
     while($row=mysqli_fetch_assoc($result)){
       echo $row;
     }
+
+ mysqli_close($link);
    ?>
