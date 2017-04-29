@@ -36,10 +36,10 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
     
    	$sql="Select * from tr_alaka";
    	echo $sql;
-    // $result = $link->query($sql);
-    // echo $result;
-    // while($row=mysqli_fetch_assoc($result)){
-    //   echo $row;
+    $result = mysqli_query($link,$sql);
+    echo $result;
+    while($row=mysqli_fetch_assoc($result)){
+      echo $row;
     // }
 
  mysqli_close($link);
