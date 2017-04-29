@@ -34,9 +34,9 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 // $conn = mysqli($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
     
-   	$sql="Select * from tr_alaka";
+   	$sql="Select * from 'tr_alaka'";
    	echo $sql;
-    $result = mysqli_query($link,$sql) or die("error hai bhai");
+    $result = mysqli_query($link,$sql);
     if(!$result){
     	echo "kuch toh garbar hai daya";
     }
