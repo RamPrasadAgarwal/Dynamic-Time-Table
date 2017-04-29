@@ -170,7 +170,7 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
 
 
   <?php 
-  $class=$_GET['class'];
+  
   if($class== '0') { ?>
    <hr>    
     
