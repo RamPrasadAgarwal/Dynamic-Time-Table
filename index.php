@@ -44,6 +44,7 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
   <?php 
     $error=" ";
     if (!isset($class)) {
+      alert("hello");
       $class=$_GET['class'];
       if($class=='error1' || $class=='error2'){
         $error='error1'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
