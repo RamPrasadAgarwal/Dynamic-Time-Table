@@ -16,7 +16,7 @@ foreach ($_SERVER as $key => $value) {
 }
   // echo $connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname;
   
-$conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
+$conn = mysqli_connect(MYSQLCONNSTR_localdb);
 ?> 
 <!DOCTYPE html>
 <html>
