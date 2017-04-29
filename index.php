@@ -43,8 +43,7 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
   <a href="teacher.php?id=0"><button class="btn btn-primary section-button">Teacher</button></a>
   <?php 
     $error=" ";
-    if (isset($class)) {
-      echo "hello";
+    if (isset($_GET['class'])) {
       $class=$_GET['class'];
       if($class=='error1' || $class=='error2'){
         $error='error1'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
