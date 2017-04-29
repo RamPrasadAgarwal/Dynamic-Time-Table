@@ -44,23 +44,23 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
   <?php 
     $error=" ";
     if (!isset($class)) {
-      $class=0;
-    }
-    else $class=$_GET['class'];
-    if($class=='error1' || $class=='error2'){
-      $error='error1'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
-    if($class=='error3' || $class=='error4'){
-      $error='error2'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
-    if($class=='error5' || $class=='error6'){
-      $error='error3'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
-    if($class=='error7' || $class=='error8'){
-      $error='error4'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+      $class=$_GET['class'];
+      if($class=='error1' || $class=='error2'){
+        $error='error1'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+      if($class=='error3' || $class=='error4'){
+        $error='error2'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+      if($class=='error5' || $class=='error6'){
+        $error='error3'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
+      if($class=='error7' || $class=='error8'){
+        $error='error4'; echo "<script type='text/javascript'>$(document).ready(function() { $('#myModal').modal('show'); });</script>"; }
 
-    if($class=='error1' || $class=='error3' || $class=='error5'|| $class=='error7') $class='class5a';
-    if($class=='error2' || $class=='error4'|| $class=='error6'|| $class=='error8') $class='class5b';
-    if($class == 'class5a') $classview='cl5a';
-    else if($class=='class5b')$classview='cl5b';
-    if($class!='0'){
+      if($class=='error1' || $class=='error3' || $class=='error5'|| $class=='error7') $class='class5a';
+      if($class=='error2' || $class=='error4'|| $class=='error6'|| $class=='error8') $class='class5b';
+      if($class == 'class5a') $classview='cl5a';
+      else if($class=='class5b')$classview='cl5b';
+    }
+    else $class='0';
+      if($class!='0'){
       ?>
     <div class="table-responsive table-background">
         <table width="98%">
