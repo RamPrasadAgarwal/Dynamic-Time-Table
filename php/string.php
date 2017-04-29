@@ -40,9 +40,9 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
     if(!$result){
     	echo "kuch toh garbar hai daya";
     }
-    // while($row=mysqli_fetch_assoc($result)){
-      // echo $row;
-    // }
+    while($row=mysqli_fetch_assoc($result)){
+     echo $row;
+     }
 
  mysqli_close($link);
    ?>
