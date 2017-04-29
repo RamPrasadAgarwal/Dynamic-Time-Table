@@ -3,7 +3,7 @@
     $pass='';
 
     $dbname='dbms-project';
-    $conn = new mysqli('MYSQLCONNSTR_localdb') or die("Connection failed");
+    $conn = new mysqli('MYSQLCONNSTR_localdb1') or die("Connection failed");
     if ($conn) {
         echo "hello";
     }
