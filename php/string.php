@@ -32,11 +32,11 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 
 
 
-$conn = new mysqli($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
+// $conn = mysqli($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname) or die("Connection failed");
     
    	$sql="Select * from tr_alaka";
 
-    $result = $conn->query($sql);
+    $result = $link->query($sql);
     echo $result;
     while($row=mysqli_fetch_assoc($result)){
       echo $row;
