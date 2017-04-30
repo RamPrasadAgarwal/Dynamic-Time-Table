@@ -16,7 +16,7 @@
 // }
   // echo $connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname;
   
-$conn = mysqli_connect(MyDatabaseConnection) or die ("na ho payega bhai");
+$conn = mysqli_connect('MyDatabaseConnection') or die ("na ho payega bhai");
 ?> 
 <!DOCTYPE html>
 <html>
