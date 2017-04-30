@@ -1,4 +1,22 @@
 <?php
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+        continue;
+    }
+    
+    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+  
+$conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
+
     $date = $_GET['date'];
     // $sub = $_GET['subject'];
     // $class = $_GET['class'];
@@ -35,7 +53,7 @@
     $dbname='dbms-project';
     $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
             $sql = "SELECT * FROM ".$col1." where date = '".$date."'";
-            $result = $conn->query($sql);
+            $result = mysqli_query($conn,$sql);
             while($row=mysqli_fetch_assoc($result)){
                      foreach($row as $key => $value) {
                           //echo $row;
@@ -45,12 +63,12 @@
                           $result = $conn->query("START TRANSACTION");
                           $sql = "UPDATE ".$value." set ".$key." = 'NULL'
                           WHERE date = '".$date."';";
-                          $result1 = $conn->query($sql);
+                          $result1 = mysqli_query($conn,$sql);
                           echo $sql;
 
                           $sql = "UPDATE ".$col1." set ".$key." = 'NULL'
                           WHERE date = '".$date."';";
-                          $result2 = $conn->query($sql);
+                          $result2 = mysqli_query($conn,$sql);
                           echo $sql;
                       }
                       if($result1 and $result2){

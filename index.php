@@ -1,22 +1,21 @@
 <?php
-//     $connectstr_dbhost = '';
-// $connectstr_dbname = '';
-// $connectstr_dbusername = '';
-// $connectstr_dbpassword = '';
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
 
-// foreach ($_SERVER as $key => $value) {
-//     if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
-//         continue;
-//     }
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+        continue;
+    }
     
-//     $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
-//     $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
-//     $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
-//     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
-// }
-  // echo $connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname;
+    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
   
-$conn = mysqli_connect(MyDatabaseConnection) or die ("na ho payega bhai");
+$conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 ?> 
 <!DOCTYPE html>
 <html>
@@ -173,7 +172,7 @@ $conn = mysqli_connect(MyDatabaseConnection) or die ("na ho payega bhai");
   
   if($class== '0') { ?>
    <hr>    
-   <div style="color: white"> 
+    
    <div class="heading1">THE NATIONAL INSTITUTE OF ENGINEERING</div>
    <div class="heading2">(Autonomous under VTU)</div>
     <center><img src="images/nie1.png" style="width:100px;height:125px;"></center>

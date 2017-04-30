@@ -56,33 +56,33 @@
     $conn = new mysqli(MYSQLCONNSTR_localdb) or die("Connection failed");
 
     $sql="Select * from ".$class." where date = '".$date."'";
-   	$result = $conn->query($sql);
+   	$result = mysqli_query($conn,$sql);
     while($row=mysqli_fetch_assoc($result)){
     	$val1 = $row[$col1];
     	$val2 = $row[$col2];
     }
     if($val1 !='NULL' && $val2 != 'NULL'){
         $sql="select * from refer where subject = '".$val1."'";
-        $result = $conn->query($sql);
+        $result = mysqli_query($conn,$sql);
         while($row=mysqli_fetch_assoc($result)){
     	   $tr1 = $row['tcode'];
         }
 	   $sql="select * from refer where subject = '".$val2."'";
-        $result = $conn->query($sql);
+        $result = mysqli_query($conn,$sql);
         while($row=mysqli_fetch_assoc($result)){
         	$tr2 = $row['tcode'];
         }
 
         //If we require to check that no other tables are colliding.
         $sql="select * from ".$tr1." where date = '".$date."'";
-        $result = $conn->query($sql);
+        $result = mysqli_query($conn,$sql);
         while($row=mysqli_fetch_assoc($result)){
     	   $t1sub1 = $row[$col1];
     	   $t1sub2 = $row[$col2];
         }
 
         $sql="select * from ".$tr2." where date = '".$date."'";
-        $result = $conn->query($sql);
+        $result = mysqli_query($conn,$sql);
         while($row=mysqli_fetch_assoc($result)){
     	   $t2sub1 = $row[$col1];
     	   $t2sub2 = $row[$col2];
@@ -93,16 +93,16 @@
     
         $sql = "UPDATE ".$class." set ".$col1." = '".$val2."' , ".$col2." = '".$val1."'
 	 	 WHERE date = '".$date."';";
-        $result1 = $conn->query($sql);
+        $result1 = mysqli_query($conn,$sql);
         echo $sql;
     
         $sql = "UPDATE ".$tr1." set ".$col2." = '".$class."' , ".$col1." = 'NULL'
 		WHERE date = '".$date."';";
-        $result2 = $conn->query($sql);        
+        $result2 = mysqli_query($conn,$sql);        
         echo $sql;
         $sql="UPDATE ".$tr2." set ".$col1." = '".$class."' , ".$col2." = 'NULL'
 		WHERE date = '".$date."';";
-        $result3 = $conn->query($sql);
+        $result3 = mysqli_query($conn,$sql);
         echo $sql;
         if($result1 and $result2 and $result3){
     	   $result4 = $conn->query("COMMIT");
