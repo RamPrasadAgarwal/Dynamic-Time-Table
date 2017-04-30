@@ -212,7 +212,7 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
             Rashmi Nayaran - 4NI14CS069<br>
             Ram Prasad Agarwal - 4NI14CS068
         </div>
-        <div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table"><img src="images/github.png" width="40px" title="GitHub"></a></div>
+        <div class="col-md-3">Project Source Code Available on <a href="https://github.com/RamPrasadAgarwal/Dynamic-Time-Table" target="_blank"><img src="images/github.png" width="40px" title="GitHub"></a></div>
     </div>
 
         <datalist id="subject">
