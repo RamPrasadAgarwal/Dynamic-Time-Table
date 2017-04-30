@@ -173,31 +173,32 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
   
   if($class== '0') { ?>
    <hr>    
-    
-   <div class="heading1">THE NATIONAL INSTITUTE OF ENGINEERING</div>
-   <div class="heading2">(Autonomous under VTU)</div>
-  <center><img src="images/nie1.png" style="width:100px;height:125px;"></center>
-    <p class="content"> A Mini project report submitted <br> In partial fulfillment of the requirements for the fifth semester of the Database <br> Management Systems laboratory of <br>Bachelor of Engineering in Computer Science and Engineering <br>
-    <div class="heading2">Under The Guidance Of</div>
-    </p>
-    <div class="guide">
-        <div class="col-md-6">
-           <h4> <b>Mr. Narender M </b> </h4>          
-            Assistant Professor <br>   
-            Department of CSE <br>   
-            NIE, Mysore – 570008.<br>               
-        </div>
-        <div class="col-md-6">
-           <h4> <b> Ms.Pallavi Y </b> </h4>          
-            Assistant Professor <br>   
-            Department of CSE <br>   
-            NIE, Mysore – 570008.<br>  
-        </div>
-    </div> 
-    <br>
-    <br>
-    <br> 
-    <br>  
+    <div style="color: white"> 
+     <div class="heading1">THE NATIONAL INSTITUTE OF ENGINEERING</div>
+     <div class="heading2">(Autonomous under VTU)</div>
+      <center><img src="images/nie1.png" style="width:100px;height:125px;"></center>
+      <p class="content"> A Mini project report submitted <br> In partial fulfillment of the requirements for the fifth semester of the Database <br> Management Systems laboratory of <br>Bachelor of Engineering in Computer Science and Engineering <br>
+      <div class="heading2">Under The Guidance Of</div>
+      </p>
+      <div class="guide">
+          <div class="col-md-6">
+             <h4> <b>Mr. Narender M </b> </h4>          
+              Assistant Professor <br>   
+              Department of CSE <br>   
+              NIE, Mysore – 570008.<br>               
+          </div>
+          <div class="col-md-6">
+             <h4> <b> Ms.Pallavi Y </b> </h4>          
+              Assistant Professor <br>   
+              Department of CSE <br>   
+              NIE, Mysore – 570008.<br>  
+          </div>
+      </div> 
+      <br>
+      <br>
+      <br> 
+      <br>
+    </div>  
 
   <?php } ?>
 
