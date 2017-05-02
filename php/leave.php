@@ -18,13 +18,7 @@ foreach ($_SERVER as $key => $value) {
 $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
     $date = $_GET['date'];
-    // $sub = $_GET['subject'];
-    // $class = $_GET['class'];
     $teacher=$_GET['teacher1'];
-    echo $date;
-    echo $teacher;
-    // $id=$_GET['id'];
-    // if($id!=0){
 
                 switch ($teacher) {
                     case 'Lokesh': $col1="tr_lokesh";
@@ -47,12 +41,7 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
                         $col1="t0";
                         break;
                 }
-    //$sql="Select * from class5b where date = '".$date."'";
-    $user='root';
-    $pass='';
-    $dbname='dbms-project';
-    $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
-            $sql = "SELECT * FROM ".$col1." where date = '".$date."'";
+    $sql = "SELECT * FROM ".$col1." where date = '".$date."'";
             $result = mysqli_query($conn,$sql);
             while($row=mysqli_fetch_assoc($result)){
                      foreach($row as $key => $value) {

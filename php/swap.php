@@ -1,4 +1,21 @@
 <?php
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+        continue;
+    }
+    
+    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+  
+$conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
     $date = $_GET['date'];
     $time1 = $_GET['time1'];
@@ -50,12 +67,7 @@
     		$col2="t0";
     		break;
     }
-	$user='root';
-    $pass='';
-    $dbname='dbms-project';
-    $conn = new mysqli(MYSQLCONNSTR_localdb) or die("Connection failed");
-
-    $sql="Select * from ".$class." where date = '".$date."'";
+	$sql="Select * from ".$class." where date = '".$date."'";
    	$result = mysqli_query($conn,$sql);
     while($row=mysqli_fetch_assoc($result)){
     	$val1 = $row[$col1];

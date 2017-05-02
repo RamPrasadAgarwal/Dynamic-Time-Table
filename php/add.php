@@ -44,10 +44,7 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
         $col1="t0";
         break;
     }
-    $user='root';
-    $pass='';
-    $dbname='dbms-project';
-    $conn = new mysqli('localhost',$user,$pass,$dbname) or die("Connection failed");
+   
     $sql="Select * from ".$class." where date = '".$date."'";
     $result = mysqli_query($conn,$sql);
     while($row=mysqli_fetch_assoc($result)){
