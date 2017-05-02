@@ -15,5 +15,5 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
 
-	echo $connectstr_dbhost,"\n",$connectstr_dbname,"\n",$connectstr_dbusername,"\n",$connectstr_dbpassword;
+	//echo $connectstr_dbhost,"\n",$connectstr_dbname,"\n",$connectstr_dbusername,"\n",$connectstr_dbpassword;
 ?>
