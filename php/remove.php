@@ -56,10 +56,8 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
       $sql = "UPDATE ".$class." set ".$col1." = 'NULL' 
         WHERE date = '".$date."';";
       $result1 = mysqli_query($conn,$sql);
-      echo $sql;
 
     $sql="select * from refer where subject = '".$sub."'";
-    echo $sql;
     $result = mysqli_query($conn,$sql);
     while($row=mysqli_fetch_assoc($result)){
       $tr1 = $row['tcode'];
@@ -68,7 +66,6 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
       $sql = "UPDATE ".$tr1. " set ".$col1." = 'NULL' 
       WHERE date = '".$date."';";
       $result2 = mysqli_query($conn,$sql);        
-      echo $sql;
     
     if($result1 and $result2){
       $result4 = $conn->query("COMMIT");

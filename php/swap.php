@@ -100,22 +100,19 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
     	   $t2sub2 = $row[$col2];
         }
 
-        if($t1sub2=='NULL' & $t2sub1=='NULL'){
+        if($t1sub2=='NULL' && $t2sub1=='NULL'){
         $result = $conn->query("START TRANSACTION");
     
         $sql = "UPDATE ".$class." set ".$col1." = '".$val2."' , ".$col2." = '".$val1."'
 	 	 WHERE date = '".$date."';";
         $result1 = mysqli_query($conn,$sql);
-        echo $sql;
     
         $sql = "UPDATE ".$tr1." set ".$col2." = '".$class."' , ".$col1." = 'NULL'
 		WHERE date = '".$date."';";
         $result2 = mysqli_query($conn,$sql);        
-        echo $sql;
         $sql="UPDATE ".$tr2." set ".$col1." = '".$class."' , ".$col2." = 'NULL'
 		WHERE date = '".$date."';";
         $result3 = mysqli_query($conn,$sql);
-        echo $sql;
         if($result1 and $result2 and $result3){
     	   $result4 = $conn->query("COMMIT");
         }

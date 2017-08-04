@@ -45,20 +45,15 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
             $result = mysqli_query($conn,$sql);
             while($row=mysqli_fetch_assoc($result)){
                      foreach($row as $key => $value) {
-                          //echo $row;
-                          //echo $key;
-                          //echo $value;
                           if ($row[$key] != 'NULL') {
                           $result = $conn->query("START TRANSACTION");
                           $sql = "UPDATE ".$value." set ".$key." = 'NULL'
                           WHERE date = '".$date."';";
                           $result1 = mysqli_query($conn,$sql);
-                          echo $sql;
 
                           $sql = "UPDATE ".$col1." set ".$key." = 'NULL'
                           WHERE date = '".$date."';";
                           $result2 = mysqli_query($conn,$sql);
-                          echo $sql;
                       }
                       if($result1 and $result2){
                             $result4 = $conn->query("COMMIT");
