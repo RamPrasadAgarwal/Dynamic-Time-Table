@@ -5,6 +5,7 @@
 }
 body{
 	background-image: url(../images/wallpaper.jpeg);
+	background-size: cover;
 }
 
 .heading{
